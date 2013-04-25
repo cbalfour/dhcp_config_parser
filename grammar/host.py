@@ -20,7 +20,7 @@ ip = Combine(
         Word(nums) 
     )("ip_address")
 
-mac = Word("abcdef0123456789:")("hardware ethernet")
+mac = Word("abcdefABCDEF0123456789:")("hardware ethernet")
 
 hostname = Combine(
         OneOrMore(

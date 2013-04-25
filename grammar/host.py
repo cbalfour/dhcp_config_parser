@@ -20,7 +20,7 @@ ip = Combine(
         Word(nums) 
     )("ip_address")
 
-mac = Word("abcdef0123456789:")("ethernet_address")
+mac = Word("abcdef0123456789:")("hardware ethernet")
 
 hostname = Combine(
         OneOrMore(
@@ -62,7 +62,7 @@ filename = (
 
 fixed_address = (
     Literal("fixed-address") + 
-    ip("fixed_address") + 
+    ip("fixed-address") + 
     semi
 )
 

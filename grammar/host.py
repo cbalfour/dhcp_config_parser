@@ -77,7 +77,7 @@ host_stanza = (
     Literal("host") +
     hostname + 
     lbrace + (
-        ethernet & 
+        Optional(ethernet) & 
         Optional(next_server) & 
         Optional(filename) & 
         Optional(option_hostname) & 

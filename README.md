@@ -13,7 +13,7 @@ Requirements
 Quickstart
 ----------
 
-A few quick examples to get you going
+A few quick examples to get you going.
 
 ### Example 1 ###
 
@@ -33,6 +33,8 @@ host foo.bar.co.za {
 
 for host in scan_string(hosts):
     print host
+
+```
 
 ```python
 

@@ -36,7 +36,6 @@ for host in scan_string(hosts):
 
 ```
 
-```python
 
 ### Example 2 ###
 
@@ -44,7 +43,7 @@ This examples extracts host entries from dhcpd.conf and writes each
 as a separate file to dhcpd.conf.d directory. 
 
 
-```
+```python
 from grammar.host import *
 
 def write_host_file(host_data):

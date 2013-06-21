@@ -135,5 +135,5 @@ if __name__ == "__main__":
     }
     """
 
-    for host in scan_string(hosts, json_output=True):
+    for host in scan_string(hosts, json_output=False):
         print host

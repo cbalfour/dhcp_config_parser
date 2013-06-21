@@ -48,10 +48,10 @@ ethernet = (
     semi
 )
 
-lease_starts = (Literal("starts") + Word(nums)  + date + semi)
-lease_ends = (Literal("ends") + Word(nums) + date + semi)
-lease_tstp = (Literal("tstp") + Word(nums) + date + semi)
-lease_cltt = (Literal("cltt") + Word(nums) + date + semi)
+lease_starts = (Literal("starts") + Word(nums)  + date("starts_date") + semi)
+lease_ends = (Literal("ends") + Word(nums) + date("ends_date") + semi)
+lease_tstp = (Literal("tstp") + Word(nums) + date("tstp_date") + semi)
+lease_cltt = (Literal("cltt") + Word(nums) + date("cltt_date") + semi)
 
 lease_binding = (Literal("binding") + Literal("state") + Word(alphanums) + semi)
 lease_next_binding = (Literal("next") + Literal("binding") + Literal("state") + Word(alphanums) + semi)
@@ -137,4 +137,4 @@ lease 192.168.73.254 {
 """
 
     for lease in scan_string(leases, json_output=False):
-        print lease["lease_address"]
+        print lease

@@ -54,6 +54,18 @@ next_server = (
     semi
 )
 
+ddns_hostname = (
+    Literal("ddns-hostname") + 
+    dblQuotedString("ddns-hostname") + 
+    semi
+)
+
+ddns_domainname= (
+    Literal("ddns-domainname") + 
+    dblQuotedString("ddns-domainname") + 
+    semi
+)
+
 filename = (
     Literal("filename") + 
     dblQuotedString("filename") + 
@@ -81,7 +93,9 @@ host_stanza = (
         Optional(next_server) & 
         Optional(filename) & 
         Optional(option_hostname) & 
-        Optional(fixed_address)
+        Optional(fixed_address) &
+	Optional(ddns_hostname) &
+	Optional(ddns_domainname)	
     ) + 
     rbrace
 )
@@ -126,13 +140,16 @@ if __name__ == "__main__":
     #from grammar.host import *
 
     hosts = """
-    host foo.bar.co.za {
-      hardware ethernet 00:19:d1:04:12:0d;
-            fixed-address 192.168.44.46;
-            next-server 192.168.40.3;
-            filename "pxelinux.0";
-            option host-name "foo";
-    }
+
+host spaniel.cs.uct.ac.za {
+	hardware ethernet 54:be:f7:0d:3b:b4;
+	next-server 137.158.59.61;
+	filename "pxelinux.0";
+	option host-name "spaniel";
+	ddns-hostname "spaniel";
+	ddns-domainname "cs.uct.ac.za";
+}
+
     """
 
     for host in scan_string(hosts, json_output=True):

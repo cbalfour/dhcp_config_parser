@@ -125,10 +125,9 @@ def scan_file(filename, json_output=True):
         result, junk1, junk2 = tuple(x)
         j["hostname"] = result["hostname"]
         j["data"] = {}
-        for i in dir(result):
-            if not str(i).startswith("_"):
-                if i != "hostname": 
-                    j["data"][i] = result[i] 
+        for i in result.keys():
+            if i != "hostname": 
+                j["data"][i] = result[i] 
 
         if json_output:
             yield json.dumps(j, sort_keys=True, indent=2)
